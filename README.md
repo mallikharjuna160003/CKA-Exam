@@ -28,6 +28,14 @@ sudo systemctl enable --now kubelet
 sudo ctr version   # For containerd
 docker --version   # For Docker
 
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+# installing calico
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.29.1/manifests/tigera-operator.yaml
+watch kubectl get pods -n calico-system
 ```
 
 
