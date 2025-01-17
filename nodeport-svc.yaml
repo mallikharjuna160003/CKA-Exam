@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vote-service
+spec:
+  selector:
+    app: python  # Make sure the selector matches the label of the vote pod
+  ports:
+    - protocol: TCP
+      port: 80  # Exposes port 80
+      targetPort: 80  # The internal port of your vote app
+      nodePort: 32000  # Optional, specify a port on the EC2 instance
+  type: NodePort
