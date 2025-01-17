@@ -49,7 +49,8 @@ systemctl enable kubelet
 
 ```
 
-
+Installing the Network Plugin
+<a href="https://github.com/flannel-io/flannel?tab=readme-ov-file#deploying-flannel-manually"> flannel</a>
 
 ```sh
 #!/bin/bash
