@@ -66,6 +66,17 @@ FLANNEL_IPMASQ=true
 # nodeport exposed service
 ![image](https://github.com/user-attachments/assets/604b319e-a43f-44ef-b28a-440eeb388b6d)
 
+# reset kubeadm
+```sh
+kubeadm reset -f
+# remove residual directories
+rm -rf /etc/kubernetes /var/lib/kubelet /var/lib/cni
+# restart docker, kubelet
+systemctl restart containerd
+systemctl restart kubelet
+```
+
+
 
 
 
