@@ -58,6 +58,86 @@ eksctl get cluster
 eksctl delete cluster --name=eksctl-test
 ```
 
+# create deployment - Lec 24
+```yaml
+# nginx deployment yaml file nginx-deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    environment: test
+  name: test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      environment: test
+  template:
+    metadata:
+      labels:
+        environment: test
+    spec:
+      containers:
+      - image: nginx:1.16
+        name: nginx
+```
+Now apply deployment
+```sh
+kubectl apply -f nginx-deploy.yaml
+kubectl get pods
+# if the no of pods the node can allow is more then the rest aree in pending state until new node created. Bigger the instance more pods can run.
+```
+# EKS Managed Nodegroupds - Lec 25
+
+![image](https://github.com/user-attachments/assets/16e11ee5-a968-47da-aedb-10190520e2a5)
+
+![image](https://github.com/user-attachments/assets/88170b0f-c2e9-4ac6-841a-ac53b7efd989)
+
+![image](https://github.com/user-attachments/assets/1281b372-21dc-4738-9a84-f166fb7e2407)
+
+![image](https://github.com/user-attachments/assets/a7407d8e-8c0e-49f6-b3ab-821261b49103)
+
+# Demo  - Lec 26
+Create cluster with managed nodegroup
+```sh
+eksctl create cluster --name eksctl-test --nodegroup-name ng-default --node-type t3.micro --nodes 2 --managed
+kubectl get all
+kubectl apply -f nginx-deployment.yaml
+kubectl get all
+```
+Ignore the below it is required for ingress 
+![image](https://github.com/user-attachments/assets/291f676c-1408-4a8c-b723-00fc658e0032)
+- Update by single click on the cluster tab for master nodes upgrade also can be done through the eksctl cli.
+- Upgrading the nodegroups
+```sh
+eksctl upgrade nodegroup --name=managed-ng-1 --cluster=managed-cluster
+kubectl get nodes
+# will be created more ec2 due to pod disruption, AMI update, all pods need to rescheduled to new nodes. It is rolling update.It is free of charge if using aws AMIs
+kubectl get pods
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
