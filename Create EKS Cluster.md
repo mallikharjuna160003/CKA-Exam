@@ -79,7 +79,8 @@ aws iam get-policy-version --policy-arn $policy_arn --version-id v1
 kubectl describe serviceaccount my-service-account -n default
 # create managed nodegroups
 eksctl create nodegroup   --cluster my-cluster   --region us-east-1   --name my-nodegroup   --node-ami-family Ubuntu2004   --node-type t3.medium   --nodes 3   --nodes-min 2   --nodes-max 4   --ssh-access   --ssh-public-key my-key-pair
-
+# create the key-pair to access ec2 instances
+aws ec2 create-key-pair     --key-name my-key-pair     --key-type rsa     --key-format pem     --query "KeyMaterial"     --output text > my-key-pair.pem
 ```
 
 
