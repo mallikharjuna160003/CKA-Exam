@@ -115,6 +115,13 @@ kubectl get nodes
 # will be created more ec2 due to pod disruption, AMI update, all pods need to rescheduled to new nodes. It is rolling update.It is free of charge if using aws AMIs
 kubectl get pods
 ```
+# helm -Lec 27
+![image](https://github.com/user-attachments/assets/c2e53c95-3373-466d-a609-c6598181aee6)
+
+![image](https://github.com/user-attachments/assets/6d626e46-96a7-4d0b-a7b4-6f1a96dcb19b)
+
+![image](https://github.com/user-attachments/assets/9b884427-d43e-4a38-9527-e2d461c3febd)
+
 
 
 
