@@ -82,5 +82,8 @@ eksctl create nodegroup   --cluster my-cluster   --region us-east-1   --name my-
 # create the key-pair to access ec2 instances
 aws ec2 create-key-pair     --key-name my-key-pair     --key-type rsa     --key-format pem     --query "KeyMaterial"     --output text > my-key-pair.pem
 ```
-
+Delete nodegroup
+```sh
+eksctl delete nodegroup --cluster my-cluster --name my-nodegroup --region us-east-1
+```
 
