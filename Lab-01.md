@@ -355,8 +355,35 @@ See the loggroups in cloudwatch.
 stream the log groups to Elastic Search via subscription.
 ![image](https://github.com/user-attachments/assets/00037775-d291-4e9b-bcb2-e8c119396ec1)
 
+# Monitoring using Prometheus - Lec 49
 
+![image](https://github.com/user-attachments/assets/20c7a69d-79c5-415c-83cd-ff69e10e906a)
 
+![image](https://github.com/user-attachments/assets/bb4ac151-d7fc-48a2-b356-1163ed95b834)
+<p>
+Prometheus discovers and collects metrics from your cluster through a pull-based model called scraping. Scrapers are set up to gather data from your cluster infrastructure and containerized applications. When you turn on the option to send Prometheus metrics, Amazon Managed Service for Prometheus provides a fully managed agentless scraper.
+</p>
+<p>
+You can turn on Prometheus metrics when first creating an Amazon EKS cluster or you can create your own Prometheus scraper for existing clusters. Both of these options are covered by this topic.
+</p>
+<a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-create">Creating scrapers for K8s cluster using Prometheus</a>
+- install kubernetes metric server in cluster
+- 
+```sh
+kubectl create namespace prometheus
+# adding repo for prometheus
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+# Deploy it
+helm upgrade -i prometheus prometheus-community/prometheus \
+    --namespace prometheus \
+    --set alertmanager.persistence.storageClass="gp2" \
+    --set server.persistentVolume.storageClass="gp2"
+ kubectl get pods -n prometheus
+ # Port forwarding 
+ kubectl --namespace=prometheus port-forward deploy/prometheus-server 9090
+ # Choose a metric from the - insert metric at cursor menu, then choose Execute. Choose the Graph tab to show the metric over time. The following image shows container_memory_usage_bytes over time.
+ # All of the Kubernetes endpoints that are connected to Prometheus using service discovery are displayed.
+```
 
 
 
