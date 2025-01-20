@@ -414,6 +414,13 @@ echo "http://$ELB"
 kubectl get secret --namespace grafana grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 
 ```
+
+![image](https://github.com/user-attachments/assets/155b97c9-4b9c-4264-8fe1-2d149a5fd54e)
+
+![image](https://github.com/user-attachments/assets/e24e32ff-4dc2-4512-a342-8a0b0ddc9370)
+
+
+
 # Uninstall
 ```sh
 helm uninstall prometheus --namespace prometheus
@@ -424,6 +431,11 @@ kubectl delete ns grafana
 
 rm -rf ${HOME}/environment/grafana
 ```
+![image](https://github.com/user-attachments/assets/140f46cd-4068-4266-9bcc-e12e1865aee4)
+
+we can mount the volume to store the and backup the metrics data using mounting volumes.
+<a href="https://grafana.com/docs/mimir/latest/configure/configure-metrics-storage-retention/#:~:text=Grafana%20Mimir%20stores%20metrics%20in,older%20than%20the%20configured%20period."> retention period</a>
+
 
 
 
