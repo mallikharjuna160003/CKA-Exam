@@ -142,7 +142,7 @@ kubectl get pods
 
 ![image](https://github.com/user-attachments/assets/d8ad3a1f-d9d3-4466-a14d-ea20e283cb28)
 
-# creating autoscaler 
+# creating autoscaler  - Lec 32
 
 ```sh
 # cluster-autoscaler.yaml
@@ -235,10 +235,61 @@ eksctl create cluster --name my-cluster --version 1.30 --managed --asg-access
 # cluster auto scaler
 kubectl apply -f https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/examples/cluster-autoscaler-autodiscover.yaml
 kubectl -n kube-system annotate deployment.apps/cluster-autoscaler cluster-autoscaler.kubernetes.io/safe-to-evict="false"
+kubectl edit deployment.apps/cluster-autoscaler -n kube-system
+# in the above file update below
 # By default, cluster autoscaler will not terminate nodes running pods in the kube-system namespace. You can override this default behaviour by passing in the --skip-nodes-with-system-pods=false flag.
+# - --node-group-auto-discovery=asg:tag=k8s.io/cluster-autoscaler/enabled,k8s.io/cluster-autoscaler/<YOUR CLUSTER NAME> 
+# - --balance-similar-node-groups
+# - --skip-nodes-with-system-pods=false
+# cluster auto scaler setup
+kubectl -n kube-system set image deployment.apps/cluster-autoscaler cluster-autoscaler=k8s.gcr.io/cluster-autoscaler:v1.15.6
+# to see logs
+kubectl -n kube-system logs -f deployment.apps/cluster-autoscaler
+kubectl apply -f cluster-autoscaler-deployment-1.yaml
 ```
+cluster auto scaler deployment yaml file
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-apache
+spec:
+  selector:
+    matchLabels:
+      run: php-apache
+  replicas: 20
+  template:
+    metadata:
+      labels:
+        run: php-apache
+    spec:
+      containers:
+      - name: php-apache
+        image: k8s.gcr.io/hpa-example
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 500m
+            memory: 256Mi
+          limits:
+            cpu: 1000m
+            memory: 512Mi
+```
+
 for more related to cluster auto-scaler <a href="https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md"> Cluster Auto scaler</a>
 ![image](https://github.com/user-attachments/assets/4c2fc372-9cbb-4305-bccb-c28c3974eec5)
+
+delete deployment
+```sh
+kubectl delete deployment php-apache
+```
+<a href="https://repost.aws/knowledge-center/amazon-eks-troubleshoot-autoscaler"> Troubleshooting autoscaler </a>
+
+
+
+
+
 
 
 
