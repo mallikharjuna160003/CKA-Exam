@@ -220,6 +220,10 @@ This reference to doc <a href="https://kubernetes.io/docs/tasks/run-application/
 
 <b>Downscale is slower but scale up is faster.</b>
 
+![image](https://github.com/user-attachments/assets/86df3640-e4ba-4020-8ab5-51159cbb8e43)
+
+![image](https://github.com/user-attachments/assets/7959d5fa-913f-419a-adf2-fd0b8689c92e)
+
 
 
 
