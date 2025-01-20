@@ -291,6 +291,76 @@ kubectl delete deployment php-apache
 <a href="https://docs.aws.amazon.com/eks/latest/userguide/prometheus.html"> Prometheus setup </a>
 <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration">Create scraper</a>
 
+# Logging in K8s 
+- Running Fluentbit as daemonset, as one pod if running on each node agent based.
+- creating cloudwatch logs ang log groups to store the pod logs
+- create a ConfigMap named cluster-info with the cluster name and the Region to send logs to
+- Check the list of log groups in the Region. You should see the following:
+1. /aws/containerinsights/Cluster_Name/application
+2. /aws/containerinsights/Cluster_Name/host
+3. /aws/containerinsights/Cluster_Name/dataplane
+
+![image](https://github.com/user-attachments/assets/95725402-78ef-46ba-b33d-a89c18f32be0)
+
+```sh
+# running fluent bit pods
+kubectl apply -f https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/cloudwatch-namespace.yaml
+# ClusterName=cluster-name
+RegionName=cluster-region
+FluentBitHttpPort='2020'
+FluentBitReadFromHead='Off'
+[[ ${FluentBitReadFromHead} = 'On' ]] && FluentBitReadFromTail='Off'|| FluentBitReadFromTail='On'
+[[ -z ${FluentBitHttpPort} ]] && FluentBitHttpServer='Off' || FluentBitHttpServer='On'
+kubectl create configmap fluent-bit-cluster-info \
+--from-literal=cluster.name=${ClusterName} \
+--from-literal=http.server=${FluentBitHttpServer} \
+--from-literal=http.port=${FluentBitHttpPort} \
+--from-literal=read.head=${FluentBitReadFromHead} \
+--from-literal=read.tail=${FluentBitReadFromTail} \
+--from-literal=logs.region=${RegionName} -n amazon-cloudwatch
+# Download and deploy the Fluent Bit daemonset
+kubectl apply -f https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/fluent-bit/fluent-bit.yaml
+# verify
+kubectl get pods -n amazon-cloudwatch
+kubectl logs <pod-name> -n amazon-cloudwatch
+# arn for cloudwatch log agent server policy
+eksctl create iamserviceaccount --cluster=<clusterName> --name=<serviceAccountName> --namespace=<serviceAccountNamespace> --override-existing-serviceaccounts --attach-policy-arn=<policyARN> --approve
+kubectl describe sa fluent-bit -n amazon-cloudwatch
+# now check the logs of fluent-bit pod will see same error bcz it has issue so delete and recreate.
+kubectl logs <fluent-bit-pod> -n cloud-watch
+# kubectl delete daemonset <fluent-bit-pod> -n cloud-watch>
+# now check the logs it will show.
+```
+it will show the below error.
+![image](https://github.com/user-attachments/assets/af31667a-ad69-4ffd-b181-e65b263f4062)
+Now attach Iam Role Service Account (IRSA) not ec2 instance role bcz the ec2 instance role will give access to all the pods to the cloudwatch logs.So IRSA give only access to fluentbit daemonset.
+![image](https://github.com/user-attachments/assets/5307ac5a-6098-42ca-b739-e4871975855a)
+See that Annotations have no values.
+![image](https://github.com/user-attachments/assets/7e60ea33-3810-4fb2-9353-debf1621f244)
+Approve the iam open id connect provider to allow the Service accounts to access the IAM roles attached to pods.
+![image](https://github.com/user-attachments/assets/1e3933e2-4499-45bb-a4f0-72a112774434)
+Create service account to access the POD iam roles. So the fluentbit daemonset can access the cloudwatch agents
+![image](https://github.com/user-attachments/assets/4cc38cbd-e89d-4f86-be4a-8669110b4468)
+See the loggroups in cloudwatch.
+![image](https://github.com/user-attachments/assets/b0485c4d-bcc7-4e66-b688-2b572e506a86)
+
+# Control Plane Logging.
+
+![image](https://github.com/user-attachments/assets/ceb01c66-0111-4c08-bcf4-290175a26526)
+
+![image](https://github.com/user-attachments/assets/55afc90c-8a3a-42c7-bc38-d24a77aaa370)
+
+![image](https://github.com/user-attachments/assets/1cbedbeb-31b0-4544-85df-968e2312d981)
+
+stream the log groups to Elastic Search via subscription.
+![image](https://github.com/user-attachments/assets/00037775-d291-4e9b-bcb2-e8c119396ec1)
+
+
+
+
+
+
+
 
 
 
