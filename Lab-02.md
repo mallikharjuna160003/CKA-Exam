@@ -39,7 +39,10 @@ kubectl create namespace <name-space-name>
 
 ![image](https://github.com/user-attachments/assets/ca74eddb-aaf4-48a9-a434-9b5f59efb9bc)
 
+
+
 <a href="https://docs.nginx.com/nginx/deployment-guides/amazon-web-services/ingress-controller-elastic-kubernetes-services/"> Nginx ingress controller</a>
+to setup a demo app follow the steps from the url.
 <a href="https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/"> EKS alb ingress controller </a>
 
 ```yaml
@@ -75,5 +78,86 @@ kubectl get pods -namespace=nginx-ingress
 
 <a href="https://docs.aws.amazon.com/eks/latest/userguide/automode.html"> EKS auto</a>
 
+creating ingress controller alb
+- tag the subnets to automatically detect the subnets by ingress controller.
+- Create a namespace game-2048
+- create ingress
+- create nodeport 
+create all these yaml files and run them.
+```yaml
+# frontend-service.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "frontend-deployment"
+  namespace: "2048-game"
+spec:
+  selector:
+    matchLabels:
+      app: "frontend"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "frontend"
+    spec:
+      containers:
+      - image: nginx
+        imagePullPolicy: Always
+        name: "frontend"
+        ports:
+        - containerPort: 80
+```
+
+```yaml
+# nginx-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "frontend-deployment"
+  namespace: "2048-game"
+spec:
+  selector:
+    matchLabels:
+      app: "frontend"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "frontend"
+    spec:
+      containers:
+      - image: nginx
+        imagePullPolicy: Always
+        name: "frontend"
+        ports:
+        - containerPort: 80
+```
+
+```yaml
+# webserver-ingress.yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "webserver-ingress"
+  namespace: "2048-game"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+  labels:
+    app: webserver-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: "service-frontend"
+              servicePort: 80
+          - path: /frontend
+            backend:
+              serviceName: "service-frontend"
+              servicePort: 80    
+```
 
 
