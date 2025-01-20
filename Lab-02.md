@@ -44,7 +44,7 @@ kubectl create namespace <name-space-name>
 <a href="https://docs.nginx.com/nginx/deployment-guides/amazon-web-services/ingress-controller-elastic-kubernetes-services/"> Nginx ingress controller</a>
 to setup a demo app follow the steps from the url.
 <a href="https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/"> EKS alb ingress controller </a>
-
+Below is the reference for ingress.
 ```yaml
 # service/loadbalancer-aws-elb.yaml
 apiVersion: v1
