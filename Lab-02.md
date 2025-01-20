@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/b2c7fdc2-6a97-44c0-8bfe-5340e39a2c70)![image](https://github.com/user-attachments/assets/6fb5d6de-b205-43b7-905b-b6d93fb0709d)
+![image](https://github.com/user-attachments/assets/2b486905-becf-4830-899e-7dea72974353)![image](https://github.com/user-attachments/assets/b2c7fdc2-6a97-44c0-8bfe-5340e39a2c70)![image](https://github.com/user-attachments/assets/6fb5d6de-b205-43b7-905b-b6d93fb0709d)
 
 ![image](https://github.com/user-attachments/assets/17f3bb09-b531-4cfc-8807-2b32d8f8be38)
 
@@ -210,6 +210,64 @@ ip mode change and apply. it will make the pod ips as target from load balancer.
 ![image](https://github.com/user-attachments/assets/a63bd0ad-1a61-4f20-9dd6-c9d94ca0728a)
 
 ![image](https://github.com/user-attachments/assets/b4df201d-835b-49d7-9909-a148521c0141)
+
+# CNI
+![image](https://github.com/user-attachments/assets/8948901a-6116-4a97-a8e5-235f11b477b8)
+
+![image](https://github.com/user-attachments/assets/38ffec8f-8d61-41bd-a4e8-72278b51961c)
+
+![image](https://github.com/user-attachments/assets/9f1e4823-f9c2-4154-81d9-c8fc4cd1a869)
+
+![image](https://github.com/user-attachments/assets/43b838ae-6903-4d88-8ffc-0042e467b40e)
+
+![image](https://github.com/user-attachments/assets/5856e6eb-65de-492b-a197-dccfaa0c9e7c)
+
+![image](https://github.com/user-attachments/assets/ecff56e6-23c2-4ca8-a5a2-71e3398f65b3)
+
+# Network Policies
+![image](https://github.com/user-attachments/assets/78300e79-ffa6-46ab-b41b-3f95f467c6a4)
+
+![image](https://github.com/user-attachments/assets/6a496378-7d1b-4806-8708-7aedd1c1f164)
+
+![image](https://github.com/user-attachments/assets/fca048b1-3f38-4c77-af00-931deb14747b)
+
+![image](https://github.com/user-attachments/assets/eba82a1d-03c5-4cc7-a04e-7b68855b61a9)
+
+![image](https://github.com/user-attachments/assets/87c7ab10-c49a-48a1-8b45-1343c9a8a2d3)
+
+![image](https://github.com/user-attachments/assets/885d38f6-d5fd-4934-901d-86ba64826da8)
+
+Network policy work on layer 3,4 it can see the ip address.It can control traffic at ip level. good for multi tenant cluster. Network Policies are useful for pod security. What we can allow and what not btn the pods communication from namespaces.
+
+![image](https://github.com/user-attachments/assets/bb758aa4-7eab-46dc-9b84-67628574d4f0)
+
+![image](https://github.com/user-attachments/assets/dd98df4c-6f03-454c-8cc2-01ecef319086)
+
+![image](https://github.com/user-attachments/assets/9546fa12-b280-48a8-a8ec-91bc5cee3420)
+
+![image](https://github.com/user-attachments/assets/2b6221c0-8c36-4850-bbc0-a3d11992724f)
+
+![image](https://github.com/user-attachments/assets/d1260810-1ca9-4b08-afa6-4a99d5597e3d)
+
+![image](https://github.com/user-attachments/assets/870a0e8a-4c32-45a9-b1aa-d1af2378c19d)
+
+![image](https://github.com/user-attachments/assets/83cc6be6-e0b2-4c49-84f4-be44c85951a8)
+
+![image](https://github.com/user-attachments/assets/608ac991-6211-4b82-8d8d-7892ee7248c2)
+
+![image](https://github.com/user-attachments/assets/33100eff-97c9-4669-9523-f10273db8870)
+
+![image](https://github.com/user-attachments/assets/0eabcfa0-c6c6-4b0d-b8fa-790ce6ce3f08)
+
+![image](https://github.com/user-attachments/assets/65adb15a-5cac-4d9b-86a0-cbbf4e25fff2)
+
+![image](https://github.com/user-attachments/assets/f04f3d60-38f9-4e83-94b5-2c79f670d42a)
+
+![image](https://github.com/user-attachments/assets/c15f0748-1809-45b9-bedc-1b49f2712d4d)
+
+![image](https://github.com/user-attachments/assets/d8943ce7-9d43-4f2c-a161-e1ecc8930fac)
+
+
 
 
 
