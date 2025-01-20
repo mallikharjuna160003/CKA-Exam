@@ -436,8 +436,18 @@ rm -rf ${HOME}/environment/grafana
 we can mount the volume to store the and backup the metrics data using mounting volumes.
 <a href="https://grafana.com/docs/mimir/latest/configure/configure-metrics-storage-retention/#:~:text=Grafana%20Mimir%20stores%20metrics%20in,older%20than%20the%20configured%20period."> retention period</a>
 
+![image](https://github.com/user-attachments/assets/7b3ba59c-0299-4246-b9e3-ef10bfcbc908)
 
+- in AWS we dont need side car containers to watch the container insights. EKS cluster has the feature.
+![image](https://github.com/user-attachments/assets/fa9600d5-de3b-4300-aec4-7a6e7ac56473)
 
+- for the cluster attach the CloudWacthLogsFullAccess policy
+![image](https://github.com/user-attachments/assets/04c50417-d712-468f-899f-de56aa1f6d98)
+
+- start reading from <b>To deploy Container Insights using the quick start</b>
+<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-quickstart.html"> container insights</a>
+
+<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-metrics.html">Cloudwatch agent setup</a>
 
 
 
