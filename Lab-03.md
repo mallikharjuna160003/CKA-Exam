@@ -49,9 +49,29 @@ DB disaster recovery via DB replication. Using standby db or maintaining the rea
 
 ![image](https://github.com/user-attachments/assets/78dba59d-aea1-4188-91b6-461f18ebc2da)
 
+![image](https://github.com/user-attachments/assets/2fc474d6-5914-4f56-a74f-d1f740e61d34)
+
+# K8s Upgrade
+
+![image](https://github.com/user-attachments/assets/c006d7a5-134d-4ad8-b210-5a8a33f315c9)
+
+![image](https://github.com/user-attachments/assets/89eb85d9-84dc-4a37-8ef9-8286e71d5b8a)
+
+![image](https://github.com/user-attachments/assets/930a1f4c-903d-4cfb-9966-9e79c5287bce)
+
+![image](https://github.com/user-attachments/assets/e0e0971c-bfcc-4bff-912d-995ac7f1f9cc)
+
+![image](https://github.com/user-attachments/assets/b511dd09-a1e6-42d1-918c-eefdd6a16ed5)
+
+![image](https://github.com/user-attachments/assets/227534d4-7a2d-4036-8c1b-bea469aeadeb)
+
+
+
 ![image](https://github.com/user-attachments/assets/6a7b7435-aa39-47a5-8eee-867c088c1a73)
 
 ![image](https://github.com/user-attachments/assets/5705d845-f26c-4d88-a4a5-685037464857)
+
+![image](https://github.com/user-attachments/assets/f2249cd8-8f73-45b0-a13a-8db5c58f3033)
 
 
 
