@@ -285,9 +285,11 @@ delete deployment
 kubectl delete deployment php-apache
 ```
 <a href="https://repost.aws/knowledge-center/amazon-eks-troubleshoot-autoscaler"> Troubleshooting autoscaler </a>
-
-
-
+# Vertical auto scaler
+<a href="https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/docs/quickstart.md"> V Auto Scaler </a>
+- Recommended to use the goldilocks visualization tool.
+<a href="https://docs.aws.amazon.com/eks/latest/userguide/prometheus.html"> Prometheus setup </a>
+<a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration">Create scraper</a>
 
 
 
