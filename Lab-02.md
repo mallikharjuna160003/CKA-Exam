@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6fb5d6de-b205-43b7-905b-b6d93fb0709d)
+![image](https://github.com/user-attachments/assets/b2c7fdc2-6a97-44c0-8bfe-5340e39a2c70)![image](https://github.com/user-attachments/assets/6fb5d6de-b205-43b7-905b-b6d93fb0709d)
 
 ![image](https://github.com/user-attachments/assets/17f3bb09-b531-4cfc-8807-2b32d8f8be38)
 
@@ -159,5 +159,59 @@ spec:
               serviceName: "service-frontend"
               servicePort: 80    
 ```
+![image](https://github.com/user-attachments/assets/eeed05ae-0059-4c03-bbd7-b23fc1404bc8)
+
+![image](https://github.com/user-attachments/assets/b1b0163c-bd2a-4be2-b535-bc0b01f97db2)
+
+Deploying ingress with ip mode.
+
+![image](https://github.com/user-attachments/assets/346462d9-9654-4bdf-b5df-239b321ea37e)
+
+path order matterrs in ingress resource rules.
+
+![image](https://github.com/user-attachments/assets/732135fc-4568-4ab0-a2c6-6f5932005b87)
+
+![image](https://github.com/user-attachments/assets/eaa6ac32-8349-44e9-b531-eb3ac4835a82)
+
+ip mode change and apply. it will make the pod ips as target from load balancer.
+
+![image](https://github.com/user-attachments/assets/a6a8fff0-b47c-4742-83d9-db206ca0dfa4)
+
+![image](https://github.com/user-attachments/assets/70f1d230-336d-4beb-ba32-d0c7d8bbe816)
+
+![image](https://github.com/user-attachments/assets/347f6844-f226-41fa-bec9-04a500242878)
+
+![image](https://github.com/user-attachments/assets/ee938081-b67d-41ce-9898-9240cf32a06a)
+
+![image](https://github.com/user-attachments/assets/a77aa94a-5080-49c1-9101-7acc7f3bf9fd)
+
+![image](https://github.com/user-attachments/assets/22a19ca8-61ac-498f-b13c-43d8c3a9f9fc)
+
+# Demo 3
+![image](https://github.com/user-attachments/assets/8dfcf2f1-c17d-4a24-900b-76773c78bcde)
+
+![image](https://github.com/user-attachments/assets/bea3cb44-c7ea-43b1-a249-b1348250e23c)
+
+![image](https://github.com/user-attachments/assets/9a0178a5-1985-48b4-b694-94e026cbd998)
+
+![image](https://github.com/user-attachments/assets/dce0712a-7a0d-4c61-92e1-827f4d17a3e3)
+
+# Canery deployment
+![image](https://github.com/user-attachments/assets/65938e92-7da6-45a9-8ca6-8e12e0c9bbf5)
+
+![image](https://github.com/user-attachments/assets/2adb0e6e-dee6-4698-887f-253b69411049)
+
+![image](https://github.com/user-attachments/assets/85208b32-e672-45d0-b82a-81623476a80f)
+
+![image](https://github.com/user-attachments/assets/0335fba7-b86e-4776-92a3-76e9b48a5fbf)
+
+![image](https://github.com/user-attachments/assets/3bd259c4-6076-4d2d-a57f-e3d12cf72360)
+
+![image](https://github.com/user-attachments/assets/a63bd0ad-1a61-4f20-9dd6-c9d94ca0728a)
+
+
+
+
+
 
 
