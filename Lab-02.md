@@ -209,6 +209,10 @@ ip mode change and apply. it will make the pod ips as target from load balancer.
 
 ![image](https://github.com/user-attachments/assets/a63bd0ad-1a61-4f20-9dd6-c9d94ca0728a)
 
+![image](https://github.com/user-attachments/assets/b4df201d-835b-49d7-9909-a148521c0141)
+
+
+
 
 
 
