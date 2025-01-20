@@ -224,6 +224,25 @@ This reference to doc <a href="https://kubernetes.io/docs/tasks/run-application/
 
 ![image](https://github.com/user-attachments/assets/7959d5fa-913f-419a-adf2-fd0b8689c92e)
 
+# Cluster autoscaler 
+- Spin the cluster
+  
+```sh
+# create managed nodegroup
+# asg-access : creates the auto scaling group and neccesary IAM roles to be accessed by ASG.
+# instance type default m5.large
+eksctl create cluster --name my-cluster --version 1.30 --managed --asg-access
+# cluster auto scaler
+kubectl apply -f https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/examples/cluster-autoscaler-autodiscover.yaml
+kubectl -n kube-system annotate deployment.apps/cluster-autoscaler cluster-autoscaler.kubernetes.io/safe-to-evict="false"
+# By default, cluster autoscaler will not terminate nodes running pods in the kube-system namespace. You can override this default behaviour by passing in the --skip-nodes-with-system-pods=false flag.
+```
+for more related to cluster auto-scaler <a href="https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md"> Cluster Auto scaler</a>
+![image](https://github.com/user-attachments/assets/4c2fc372-9cbb-4305-bccb-c28c3974eec5)
+
+
+
+
 
 
 
