@@ -39,6 +39,40 @@ kubectl create namespace <name-space-name>
 
 ![image](https://github.com/user-attachments/assets/ca74eddb-aaf4-48a9-a434-9b5f59efb9bc)
 
+<a href="https://docs.nginx.com/nginx/deployment-guides/amazon-web-services/ingress-controller-elastic-kubernetes-services/"> Nginx ingress controller</a>
+<a href="https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/"> EKS alb ingress controller </a>
+
+```yaml
+# service/loadbalancer-aws-elb.yaml
+apiVersion: v1
+kind: Service
+metadata:
+ name: nginx-ingress-nlb
+ namespace: nginx-ingress
+ annotations:
+   service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "tcp"
+   service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
+   service.beta.kubernetes.io/aws-load-balancer-type: nlb
+spec:
+   externalTrafficPolicy: Local
+   type: LoadBalancer
+   ports:
+   - port: 80
+     targetPort: 80
+     protocol: TCP
+     name: http
+   - port: 443
+     targetPort: 443
+     protocol: TCP
+     name: https
+   selector:
+     app: nginx-ingress
+```
+get pods in nginx namespace
+```sh
+kubectl get pods -namespace=nginx-ingress
+```
+
 <a href="https://docs.aws.amazon.com/eks/latest/userguide/automode.html"> EKS auto</a>
 
 
