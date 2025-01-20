@@ -383,8 +383,47 @@ helm upgrade -i prometheus prometheus-community/prometheus \
  kubectl --namespace=prometheus port-forward deploy/prometheus-server 9090
  # Choose a metric from the - insert metric at cursor menu, then choose Execute. Choose the Graph tab to show the metric over time. The following image shows container_memory_usage_bytes over time.
  # All of the Kubernetes endpoints that are connected to Prometheus using service discovery are displayed.
-```
+# add grafana Helm repo
+helm repo add grafana https://grafana.github.io/helm-charts
+mkdir ${HOME}/environment/grafana
 
+cat << EoF > ${HOME}/environment/grafana/grafana.yaml
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
+      url: http://prometheus-server.prometheus.svc.cluster.local
+      access: proxy
+      isDefault: true
+EoF
+kubectl create namespace grafana
+
+helm install grafana grafana/grafana \
+    --namespace grafana \
+    --set persistence.storageClassName="gp2" \
+    --set persistence.enabled=true \
+    --set adminPassword='EKS!sAWSome' \
+    --values ${HOME}/environment/grafana/grafana.yaml \
+    --set service.type=LoadBalancer
+kubectl get all -n grafana
+export ELB=$(kubectl get svc -n grafana grafana -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+
+echo "http://$ELB"
+kubectl get secret --namespace grafana grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+```
+# Uninstall
+```sh
+helm uninstall prometheus --namespace prometheus
+kubectl delete ns prometheus
+
+helm uninstall grafana --namespace grafana
+kubectl delete ns grafana
+
+rm -rf ${HOME}/environment/grafana
+```
 
 
 
