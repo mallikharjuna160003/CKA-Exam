@@ -449,6 +449,30 @@ we can mount the volume to store the and backup the metrics data using mounting 
 
 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-setup-metrics.html">Cloudwatch agent setup</a>
 
+![image](https://github.com/user-attachments/assets/8ef1bdd6-9944-43b6-8edb-0891ca4c7ee2)
+
+![image](https://github.com/user-attachments/assets/e527a890-937b-4d0a-b9b8-c308971d2de8)
+
+![image](https://github.com/user-attachments/assets/e3023249-8b61-4d5b-a2cd-b0b38079a322)
+
+```sh
+eksctl delete cluster --name=eksctl-test
+```
+![image](https://github.com/user-attachments/assets/c9e640d0-fd3e-4f59-b2fa-b480407a4f94)
+
+![image](https://github.com/user-attachments/assets/9934cad8-dacc-4265-8146-dd68575db82a)
+
+![image](https://github.com/user-attachments/assets/dfbd7f12-7f8e-4dbd-9242-3f8c5edf712a)
+
+![image](https://github.com/user-attachments/assets/40cb3e27-cfa9-423a-b293-14cc2e5669d4)
+
+![image](https://github.com/user-attachments/assets/2faf6ea4-5357-42a4-bf66-0a536764f79a)
+
+
+
+
+
+
 
 
 
