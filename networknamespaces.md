@@ -143,6 +143,10 @@ sudo tshark -i "$1" -f "not port 22" -T fields \
 
 #./tshark_setup.sh veth10
 ```
+<a href="https://github.com/kristenjacobs/container-networking"> Network Namespaces and K8s networking </a>
+
+![image](https://github.com/user-attachments/assets/e0e75d45-ca16-4306-bf9a-321baa5a6cda)
+
 
 
 
