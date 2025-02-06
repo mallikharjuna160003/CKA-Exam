@@ -1,5 +1,6 @@
 ### Creating Cluster with 3 nodes
 <a href="https://k21academy.com/docker-kubernetes/three-node-kubernetes-cluster/"> Reference</a>
+<a href="https://stackoverflow.com/questions/38437264/i-cant-execute-command-modprobe-vboxdrv"> Fixing issues with vagrant  in linux </a>
 Launch 3 EC2 instances pass the below script in user data.
 ```sh
 #!/bin/bash
